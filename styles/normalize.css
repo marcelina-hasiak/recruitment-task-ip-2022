@@ -71,7 +71,7 @@ pre {
 
 p {
 margin: 0;
-line-height: 1.2;
+line-height: normal;
 }
 /**
  * Remove the gray background on active links in IE 10.

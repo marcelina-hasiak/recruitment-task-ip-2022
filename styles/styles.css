@@ -49,13 +49,6 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
-  .hero-content-wrapper {
-    max-width: 1440px;
-    align-self: center;
-  }
-}
-
 .hero-image-wrapper {
   display: flex;
   align-items: end;

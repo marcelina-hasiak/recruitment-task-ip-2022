@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get schwifty with Rick & Morty | Rejestracja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/normalize.css">
+  <link rel="stylesheet" href="../styles/general-styles.css">
+  <link rel="stylesheet" href="../styles/registration-styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <a href="../pages/login.html" class="header-link">Logowanie</a>
+    </header>
+    <article class="registration-wrapper">
+      <div class="registration-content">
+        <h1 class="form-title">Rejestracja</h1>
+        <form class="form" id="contactForm">
+          <p class="form-row">
+            <label class="form-label" for="name">nazwa użytkownika:</label>
+            <input class="form-input" placeholder="Just Harry" type="text" name="name" minlength='' required pattern="" id="name">
+          </p>
+          <p class=" form-row">
+            <label for="email">hasło:</label>
+            <input placeholder="just_harry@gmail.com" type="email" name="email" required id="email">
+          </p>
+          <p class="form-row">
+            <label for="password">email:</label>
+            <input placeholder="t4jn3H4sl0" type="password" name="password" required
+                pattern="" id="password">
+          </p>
+          <p class="form-row">
+            <label for="confirm-password">potwierdź email:</label>
+            <input placeholder="t4jn3H4sl0" type="password" name="confirm-password" required id="confirm-password"
+                data-error-text="Password needs to be the same">
+          </p>
+          <p class="form-row">
+            <input class="submit-registration" type="button" value="zarejestruj">
+          </p>
+        </form>
+      </div>
+    </article>
+  </main>
+  <script src="../scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+.registration-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  font-size: 2.2rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.4rem;
+}
+
+.registration-content {
+  width: 100%;
+  max-width: 800px;
+}
+
+label {
+  margin-bottom: .6rem;
+}
+
+input:not([type=button]) {
+  background-color: unset;
+  border: none;
+  border-bottom: 1px solid var(--white);
+  color:var(--white);
+  padding-bottom: .4rem;
+  line-height: normal;
+  font-size: 1.2rem;
+}
+
+input::placeholder {
+  color: var(--light-gray);
+  font-size: 1.2rem;
+}
+
+.submit-registration {
+  background-color: var(--green);
+  width: min-content;
+  align-self: flex-end;
+  margin-top: 1rem;
+}
