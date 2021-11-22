@@ -64,9 +64,15 @@ a {
   text-transform: uppercase;
   font-weight: 700;
   color: var(--white);
+  border: 2px solid var(--white);
   cursor: pointer;
 }
 
+article {
+  padding: 0 3rem;
+}
+
 h1 {
+  margin: 10vh 0 4vh;
   text-transform: uppercase;
 }

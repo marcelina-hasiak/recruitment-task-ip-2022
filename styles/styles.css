@@ -1,5 +1,4 @@
 .header-link {
-  border: 2px solid var(--white);
   background-color: var(--black);
 }
 
@@ -8,7 +7,6 @@
 }
 
 .hero-title {
-  margin: 10vh 0 4vh;
   font-size: 3.6;
   text-align: center;
 }
@@ -39,10 +37,9 @@
 .hero-content-wrapper {
   display: flex;
   flex-direction: column;
+  flex: 1;
   background-image: url(../assets/background-hero.svg);
   background-size: contain;
-  padding: 0 3rem;
-  flex: 1;
 }
 
 @media screen and (orientation: landscape) {
