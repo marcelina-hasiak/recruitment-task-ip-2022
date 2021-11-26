@@ -8,22 +8,22 @@ form h1 {
 }
 
 label {
-  margin-bottom: .6rem;
+  margin-bottom: 0.6rem;
 }
 
-input:not([type=button]) {
-  background-color: unset;
+input:not([type='submit']) {
+  flex: 1;
+  background-color: var(--black);
   border: none;
   border-bottom: 1px solid var(--white);
-  color:var(--white);
-  padding-bottom: .4rem;
+  color: var(--white);
+  padding-bottom: 0.4rem;
   line-height: normal;
   font-size: 1.2rem;
 }
 
 @media screen and (min-width: 426px) {
-  input:not([type=button]) {
-    flex: 1;
+  input:not([type='submit']) {
     margin-left: 1rem;
   }
 }
@@ -73,4 +73,11 @@ input::placeholder {
   .submit {
     justify-self: flex-end;
   }
+}
+
+.error-message {
+  color: var(--red);
+  font-size: 1rem;
+  margin-top: -3.6vh;
+  display: block;
 }

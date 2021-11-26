@@ -1,3 +1,9 @@
 .gallery-header {
   justify-content: flex-end;
+  align-items: baseline;
+}
+
+.user-name {
+  font-weight: 700;
+  margin-right: 2rem;
 }
