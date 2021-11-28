@@ -7,3 +7,25 @@
   font-weight: 700;
   margin-right: 2rem;
 }
+
+.characters-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .characters-wrapper {
+    grid-template-columns: repeat(3, minmax( 200px, 1fr));
+  }
+}
+
+.character-image {
+  max-width: 300px;
+  width: 100%;
+}
+
+.character-meta {
+  font-size: 1.2rem;
+  margin-bottom: .4rem;
+}
