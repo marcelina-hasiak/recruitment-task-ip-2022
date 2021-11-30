@@ -26,6 +26,7 @@ class FormValidator {
 
   handleFormSubmitting = (e) => {
     e.preventDefault()
+
     if (this.form.id === 'login-form') {
       this.clearFormInputs()
       this.subscribers.forEach((subscriber) =>
@@ -33,6 +34,7 @@ class FormValidator {
       )
       return
     }
+
     const isFormValid = this.validateInputs()
     if (isFormValid) {
       this.subscribers.forEach((subscriber) =>
@@ -144,6 +146,10 @@ class StorageValidator {
     passwordStorageError: 'Podane hasło jest niepoprawne.',
   }
 
+  static regexPatterns = {
+    emailPattern: /(\+[\w\d.-]*)(?:@)/,
+  }
+
   constructor(storage, inputs, formType) {
     this.storage = storage
     this.inputs = inputs
@@ -159,14 +165,15 @@ class StorageValidator {
 
     switch (this.formType) {
       case 'registration-form':
-        if (this.userNames.includes(name.value)) {
+        if (this.isUserNameExist(name)) {
           this.subscribers.createErrorMessage(
             name,
             StorageValidator.errorMsg.namePatternError,
           )
           return
         }
-        if (this.userEmails.includes(email.value)) {
+
+        if (this.isUserEmailExist(email)) {
           this.subscribers.createErrorMessage(
             email,
             StorageValidator.errorMsg.emailPatternError,
@@ -174,13 +181,12 @@ class StorageValidator {
           return
         }
         this.addUser(name, password, email)
-        this.setNames(name)
-        this.setEmails(email)
-        this.setCurrentUser(name)
         this.subscribers.getAccessToGatedContent()
         break
+
       case 'login-form':
         const user = this.storage.get(`${name.value.toLowerCase()}`)
+
         if (!user) {
           this.subscribers.createErrorMessage(
             name,
@@ -188,6 +194,7 @@ class StorageValidator {
           )
           return
         }
+
         if (user.password !== password.value) {
           this.subscribers.createErrorMessage(
             password,
@@ -195,6 +202,7 @@ class StorageValidator {
           )
           return
         }
+
         this.setCurrentUser(name)
         this.subscribers.getAccessToGatedContent()
         break
@@ -202,23 +210,38 @@ class StorageValidator {
   }
 
   loadUserNames() {
-    return this.storage.get('_names')
+    return this.storage.get('#names')
   }
 
   loadUserEmails() {
-    return this.storage.get('_emails')
+    return this.storage.get('#emails')
   }
 
   loadCurrentUser() {
-    return this.storage.get('_currentUser')
+    return this.storage.get('#currentUser')
+  }
+
+  isUserNameExist(name) {
+    return this.userNames.includes(name.value)
+  }
+
+  isUserEmailExist(email) {
+    const pureEmailAdress = this.removeAlias(email.value)
+    return this.userEmails.includes(pureEmailAdress)
   }
 
   addUser(name, password, email) {
+    const pureEmailAdress = this.removeAlias(email.value)
+
     this.storage.set(name.value.toLowerCase(), {
       name: name.value,
       password: password.value,
-      email: email.value,
+      email: pureEmailAdress
     })
+
+    this.setNames(name)
+    this.setEmails(pureEmailAdress)
+    this.setCurrentUser(name)
   }
 
   setCurrentUser(name) {
@@ -232,8 +255,13 @@ class StorageValidator {
   }
 
   setEmails(email) {
-    this.userEmails.push(email.value)
+    this.userEmails.push(email)
     this.storage.set('#emails', this.userEmails)
+  }
+
+  removeAlias(email) {
+    const match = StorageValidator.regexPatterns.emailPattern.exec(email)
+    return !match ?  email : email.replace(match[1], "")
   }
 
   subscribe(subscribers) {
