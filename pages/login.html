@@ -17,20 +17,24 @@
 <body>
   <main>
     <header>
-      <a href="../pages/registration.html" class="header-link">Rejestracja</a>
+      <a href="../pages/registration.html">Rejestracja</a>
     </header>
     <article class="form-wrapper">
       <div class="form-content">
         <h1>Rejestracja</h1>
-        <form class="form" action="" method="get">
-          <p class="input-row">
-            <label class="form-label" for="name">nazwa użytkownika:</label>
-            <input class="form-input" type="text" name="name" minlength='' required pattern="" id="name">
-          </p>
-          <p class="input-row">
-            <label for="password">email:</label>
-            <input type="password" name="password" required pattern="" id="password">
-          </p>
+        <form id="login-form" method="post" action="">
+          <div data-input-wrapper="name">
+            <p class="input-row">
+              <label for="name">nazwa użytkownika:</label>
+              <input type="text" name="name" minlength='' required id="name">
+            </p>
+          </div>
+          <div data-input-wrapper="password">
+            <p class="input-row">
+              <label for="password">hasło:</label>
+              <input type="password" name="password" required id="password">
+            </p>
+          </div>
           <p class="submit-row">
             <input class="submit" type="submit" value="zaloguj">
           </p>
@@ -38,7 +42,7 @@
       </div>
     </article>
   </main>
-  <script src="../scripts/index.js"></script>
+  <script src="../scripts/form-handler.js"></script>
 </body>
 
 </html>

@@ -17,15 +17,15 @@
 <body>
   <main>
     <header>
-      <a href="../pages/login.html" class="header-link">Logowanie</a>
+      <a href="../pages/login.html">Logowanie</a>
     </header>
     <article class="form-wrapper">
       <div class="form-content">
         <h1>Rejestracja</h1>
-        <form class="form" id="registration-form">
+        <form id="registration-form" method="post" action="">
           <div data-input-wrapper="name">
             <p class="input-row">
-              <label class="form-label" for="name">nazwa użytkownika:</label>
+              <label for="name">nazwa użytkownika:</label>
               <input placeholder="Just Harry" type="text" name="name" minlength="6" maxlength="20" required id="name">
             </p>
           </div>
@@ -54,7 +54,7 @@
       </div>
     </article>
   </main>
-  <script src="../scripts/registration.js"></script>
+  <script src="../scripts/form-handler.js"></script>
 </body>
 
 </html>
