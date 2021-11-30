@@ -1,11 +1,3 @@
-.header-link {
-  background-color: var(--black);
-}
-
-.header-link:first-of-type {
-  margin-right: 2rem;
-}
-
 .hero-title {
   font-size: 3.6;
   text-align: center;

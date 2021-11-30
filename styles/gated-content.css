@@ -1,11 +1,17 @@
 .gallery-header {
   justify-content: flex-end;
   align-items: baseline;
+  flex-wrap: wrap;
+  position: sticky;
+  top: -1px;
+}
+
+.user-name-wrapper {
+  margin-bottom: 1rem;
 }
 
 .user-name {
   font-weight: 700;
-  margin-right: 2rem;
 }
 
 .characters-wrapper {

@@ -69,8 +69,22 @@ header {
   background-color: var(--dark-gray);
 }
 
+header a,
+header button {
+  background-color: var(--black);
+}
+
+header a {
+  margin-right: 2rem;
+}
+
+header button {
+  margin-left: 2rem;
+}
+
 a,
-input[type='submit'] {
+input[type='submit'],
+button {
   padding: 1rem 1.4rem;
   font-size: 1.4rem;
   text-transform: uppercase;
@@ -80,6 +94,13 @@ input[type='submit'] {
   cursor: pointer;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 1px dashed var(--green);
+  outline-offset: .4rem;
+}
+
 article {
   padding: 4rem 3rem;
 }
@@ -87,6 +108,7 @@ article {
 @media screen and (min-width: 1440px) {
   article {
     max-width: 1440px;
+    width: 100%;
     align-self: center;
   }
 }
@@ -95,3 +117,10 @@ h1 {
   margin-bottom: 4vh;
   text-transform: uppercase;
 }
+
+h2 {
+  margin-bottom: 2vh;
+  text-transform: uppercase;
+}
+
+
