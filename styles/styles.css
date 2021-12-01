@@ -1,9 +1,9 @@
 :root {
   --white: #fff;
+  --black: #000;
   --dark-gray: #1a1c1f;
   --light-gray: #605a5a;
-  --black: #000;
-  --green: #5fd900;
+  --green: #00a420;
   --red: #ff0000;
 
   --min-viewport-width: 320;
@@ -70,7 +70,7 @@ header {
 }
 
 header a,
-header button {
+button {
   background-color: var(--black);
 }
 

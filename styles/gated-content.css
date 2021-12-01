@@ -31,6 +31,15 @@
   width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
+.character-button {
+  margin-bottom: 2rem;
+  background-color: var(--green);
+}
+
 .character-meta {
   font-size: 1.2rem;
   margin-bottom: .4rem;

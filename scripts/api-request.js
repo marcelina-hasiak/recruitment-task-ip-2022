@@ -2,7 +2,9 @@ class GatedContentController {
   constructor() {
     this.isUserLogged()
     this.setCurrentUser()
+    this.characterWrapper = document.querySelector('.characters-wrapper--js')
     this.getCharacters()
+    this.initializeCharacterButton()
     this.initializeLogOutButton()
   }
 
@@ -32,24 +34,39 @@ class GatedContentController {
   }
 
   renderAPIdata(data) {
-    const characterWrapper = document.querySelector('.characters-wrapper')
-    data.forEach(character => this.createCharacterHtmlElement(characterWrapper, character))
+    data.forEach(character => this.createCharacterHtmlElement(this.characterWrapper, character))
   }
 
   createCharacterHtmlElement(dataWrapper, data) {
     const {gender, image, name, species, status} = data
     const markup = `
-    <div>
+    <div class="character-wrapper--js">
       <div>
         <img class="character-image" src="${image}" alt="${name}">
       </div>
-      <h2>${name}</h2>
-      <p class="character-meta">gender: ${gender}</p>
-      <p class="character-meta">species: ${species}</p>
-      <p class="character-meta">status: ${status}</p>
+      <h2 lang="en">${name}</h2>
+      <button class="character-button character-button--js">Klikaj tu</button>
+      <div class="character-meta-wrapper--js hidden">
+        <p lang="en" class="character-meta">gender: ${gender}</p>
+        <p lang="en" class="character-meta">species: ${species}</p>
+        <p lang="en" class="character-meta">status: ${status}</p>
+      </div>
     </div>
     `
     dataWrapper.insertAdjacentHTML("beforeend", markup)
+  }
+
+  initializeCharacterButton() {
+    this.characterWrapper.addEventListener('click', this.handleCharacterActivation)
+  }
+
+  handleCharacterActivation = (e) => {
+    const button = e.target.closest('button')
+    if (!button) return
+    if (!this.characterWrapper.contains(button)) return
+
+    const characterMeta = button.closest('.character-wrapper--js').querySelector('.character-meta-wrapper--js')
+    characterMeta.classList.toggle('hidden')
   }
 
   initializeLogOutButton() {
