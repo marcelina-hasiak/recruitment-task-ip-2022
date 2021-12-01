@@ -195,7 +195,9 @@ class StorageValidator {
           return
         }
 
-        if (user.password !== password.value) {
+        const hashedPassword = this.hashing(password.value)
+
+        if (user.password !== hashedPassword) {
           this.subscribers.createErrorMessage(
             password,
             StorageValidator.errorMsg.passwordStorageError,
@@ -231,11 +233,13 @@ class StorageValidator {
   }
 
   addUser(name, password, email) {
+    const nameWithLowerCase = name.value.toLowerCase()
+    const hashedPassword = this.hashing(password.value)
     const pureEmailAdress = this.removeAlias(email.value)
 
-    this.storage.set(name.value.toLowerCase(), {
+    this.storage.set(nameWithLowerCase, {
       name: name.value,
-      password: password.value,
+      password: hashedPassword,
       email: pureEmailAdress
     })
 
@@ -263,6 +267,17 @@ class StorageValidator {
     const match = StorageValidator.regexPatterns.emailPattern.exec(email)
     return !match ?  email : email.replace(match[1], "")
   }
+
+  hashing(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i)
+      hash = (hash << 5) - hash + char
+      hash &= hash
+    }
+    return new Uint32Array([hash])[0].toString(36);
+    //taken from: https://gist.github.com/jlevy/c246006675becc446360a798e2b2d781
+  };
 
   subscribe(subscribers) {
     this.subscribers = { ...this.subscribers, ...subscribers }
