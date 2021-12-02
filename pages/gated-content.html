@@ -18,17 +18,19 @@
   <main>
     <header class="gallery-header">
       <p class="user-name-wrapper">Hello,
-        <span id="user-name" class="user-name">Just Harry</span>
+        <span class="user-name user-name--js">Just Harry</span>
       </p>
-      <button id="log-out">Wyloguj</button>
+      <button class="log-out--js">Wyloguj</button>
     </header>
     <article>
       <h1>Galeria obrazów</h1>
-      <div class="characters-wrapper characters-wrapper--js">
-      </div>
+      <div class="characters-wrapper characters-wrapper--js"></div>
     </article>
   </main>
+  <script src="../scripts/app-storage.js"></script>
+  <script src="../scripts/currentuser.js"></script>
   <script src="../scripts/api-request.js"></script>
+  <script src="../scripts/gated-content-controller.js"></script>
 </body>
 
 </html>

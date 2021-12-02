@@ -98,7 +98,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible {
   outline: 1px dashed var(--green);
-  outline-offset: .4rem;
+  outline-offset: 0.4rem;
 }
 
 article {
@@ -123,4 +123,6 @@ h2 {
   text-transform: uppercase;
 }
 
-
+.hidden {
+  display: none;
+}

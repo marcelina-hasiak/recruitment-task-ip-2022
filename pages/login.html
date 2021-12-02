@@ -21,12 +21,12 @@
     </header>
     <article class="form-wrapper">
       <div class="form-content">
-        <h1>Rejestracja</h1>
-        <form id="login-form" method="post" action="">
+        <h1>Logowanie</h1>
+        <form id="login-form">
           <div data-input-wrapper="name">
             <p class="input-row">
               <label for="name">nazwa użytkownika:</label>
-              <input type="text" name="name" minlength='' required id="name">
+              <input type="text" name="name" required id="name">
             </p>
           </div>
           <div data-input-wrapper="password">
@@ -42,7 +42,10 @@
       </div>
     </article>
   </main>
-  <script src="../scripts/form-handler.js"></script>
+  <script src="../scripts/app-storage.js"></script>
+  <script src="../scripts/form-validator.js"></script>
+  <script src="../scripts/storage-validator.js"></script>
+  <script src="../scripts/form-controller.js"></script>
 </body>
 
 </html>
