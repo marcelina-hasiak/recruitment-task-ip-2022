@@ -11,7 +11,7 @@ Task based on html, css and vanilla js, no frameworks, libraries, css preprocess
 - Each user has to be owner of unique name and email adress
 - State is saved in browser local storage
 - Application uses API request to get content about Rick & Morty characters (only first outcome - 20 characters)
-- Additional meta data revealing after button click
+- Additional meta data revealing after image click
 
 
 ## How to use it?

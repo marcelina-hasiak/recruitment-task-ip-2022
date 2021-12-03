@@ -96,7 +96,8 @@ button {
 
 a:focus-visible,
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+img:focus-visible {
   outline: 1px dashed var(--green);
   outline-offset: 0.4rem;
 }

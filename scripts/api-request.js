@@ -26,10 +26,9 @@ class APIRequest {
     const markup = `
     <div class="character-wrapper--js">
       <div>
-        <img class="character-image" src="${image}" alt="${name}">
+        <img role="button" tabindex="0" class="character-image character-image--js" src="${image}" alt="${name}">
       </div>
       <h2 lang="en">${name}</h2>
-      <button class="character-button character-button--js">Klikaj tu</button>
       <div class="character-meta-wrapper--js hidden">
         <p class="character-meta">płeć: 
           <span lang="en"> ${gender}<span>

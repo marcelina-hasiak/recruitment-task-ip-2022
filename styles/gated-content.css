@@ -29,11 +29,7 @@
 .character-image {
   max-width: 300px;
   width: 100%;
-}
-
-.character-button {
-  margin-bottom: 2rem;
-  background-color: var(--green);
+  cursor: pointer;
 }
 
 .character-meta {

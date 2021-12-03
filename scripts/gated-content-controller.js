@@ -22,6 +22,10 @@ class GatedContentController {
       'click',
       this.handleCharacterActivation,
     )
+    this.characterWrapper.addEventListener(
+      'keypress',
+      this.handleCharacterActivation,
+    )
   }
 
   initializeLogOutButton() {
@@ -30,11 +34,13 @@ class GatedContentController {
   }
 
   handleCharacterActivation = (event) => {
-    const button = event.target.closest('button')
-    if (!button) return
-    if (!this.characterWrapper.contains(button)) return
+    if (!event.keyCode === 13) return
+    const img = event.target.closest('img')
+    if (!img) return
+    if (!this.characterWrapper.contains(img)) return
+    
 
-    const characterMeta = button
+    const characterMeta = img
       .closest('.character-wrapper--js')
       .querySelector('.character-meta-wrapper--js')
     characterMeta.classList.toggle('hidden')
